@@ -1,24 +1,23 @@
+import { createSlice } from "@reduxjs/toolkit";
 
-//Default state
-const defaultState = {
-  balance: 0,
+//default state
+const initialState = {
+  balance: 0
 };
 
-const account = (state = defaultState, action) => {
-  console.log("Cylon Account is Reducing!!")
-  switch (action.type) {
-    case "increment" : 
-      return {
-        balance: state.balance + action.payload
-      }
-    case "decrement" :
-      return{
-        balance: state.balance - action.payload
-      }
+export const accountSlice = createSlice({
+  name: "account",
+  initialState,
+  reducers: {
+    actionIncrement: (state, action) => {state.balance += action.payload}
+    ,
+    actionDecrement : (state, action) => {state.balance -= action.payload}
+    ,
+    
+  },
+});
 
-    default :
-      return state
-  }
-}
+//Action creators are generated for each case reducer function
+export const {actionIncrement, actionDecrement } = accountSlice.actions;
 
-export default account;
+export default accountSlice.reducer;

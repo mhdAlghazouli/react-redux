@@ -1,8 +1,8 @@
-import { legacy_createStore as createStore } from "redux";
-import accountReducer from "./accountReducer"
+import { configureStore } from "@reduxjs/toolkit";
+import accountReducer from "./accountReducer";
 
-export const store = createStore(
-  accountReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-
+export const store = configureStore({
+  reducer: {
+    account: accountReducer,
+  }
+});

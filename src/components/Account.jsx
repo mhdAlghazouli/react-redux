@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { actionIncrement, actionDecrement} from "../Redux/userAction"
+import { actionIncrement, actionDecrement} from "../Redux/accountReducer"
 
 const Account = () => {
   //local state to hold input box temporary
   const [input, setInput] = useState(0);
-  const balance = useSelector((state) => state.balance);
+  const balance = useSelector((state) => state.account.balance);
   const dispatch = useDispatch();
 
   const handleDeposit = (e) => {
